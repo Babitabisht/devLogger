@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "devLogger"
+    }
+  },
+  "defaultProject": "devLogger",
+  "cli": {
+    "analytics": false
+  }
 }
