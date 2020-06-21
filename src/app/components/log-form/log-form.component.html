@@ -14,7 +14,8 @@
       value="add log"
       class="btn btn-light mb-3"
       [disabled]="!this.text"
+      (click)="onSubmit()"
     />
-    <button class="btn btn-warn mb-3" [hidden]="!this.text">Clear</button>
+    <button class="btn btn-warn mb-3" [hidden]="!this.text"  (click)="onSubmit()" >Clear</button>
   </form>
 </div>

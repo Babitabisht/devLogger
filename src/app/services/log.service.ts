@@ -4,15 +4,17 @@ import { Log } from '../models/log';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LogService {
-logs:Log[];
-private logSource = new BehaviorSubject<Log>({
-  id:null,text: null,date:null
-})
+  logs: Log[];
+  private logSource = new BehaviorSubject<Log>({
+    id: null,
+    text: null,
+    date: null,
+  });
 
-selectedLog = this.logSource.asObservable()
+  selectedLog = this.logSource.asObservable();
 
   constructor() {
     this.logs = [
@@ -28,19 +30,34 @@ selectedLog = this.logSource.asObservable()
         date: new Date('12/26/2019'),
       },
     ];
-   }
+  }
 
+  getLogs(): Observable<Log[]> {
+    return of(this.logs);
+  }
 
-   getLogs():Observable<Log[]>{
-     return of(this.logs);
-   }
+  setFormLog(log: Log) {
+    this.logSource.next(log);
+  }
 
-   setFormLog(log:Log){
-     this.logSource.next(log);
-   }
-  
+  addLog(log: Log) {
+    this.logs.unshift(log);
+  }
 
+  updateLog(log: Log) {
+    this.logs.forEach((item, index) => {
+      if (item.id == log.id) {
+        this.logs.splice(index, 1);
+        this.logs.unshift(log);
+      }
+    });
+  }
 
-
-
+  deleteLog(log: Log) {
+    this.logs.forEach((item, index) => {
+      if (item.id == log.id) {
+        this.logs.splice(index, 1);
+      }
+    });
+  }
 }
