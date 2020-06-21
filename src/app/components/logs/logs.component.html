@@ -1,3 +1,4 @@
+
 <ul class="list-group ">
   <li  *ngFor="let item of logs"  class="list-group-item d-flex justify-content-between align-items-center">
     <a  (click)="onSelect(item)" href="">{{ item.text }}</a>
@@ -5,4 +6,10 @@
     <i class="fa fa-remove"  (click)="onDelete(item)" ></i>
   </li>
 </ul>
+
+ 
+<div *ngIf="msg">
+
+<h3>No logs found in the system</h3>
+</div>
 

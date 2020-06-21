@@ -28,10 +28,10 @@ export class LogFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('---on submit---');
+  
 
     if (this.isNew) {
-      console.log('---in--');
+     
 
       const newLog = {
         id: this.generateId(),
@@ -60,5 +60,13 @@ export class LogFormComponent implements OnInit {
         v = c == 'x' ? r : (r & 0x3) | 0x8;
       return v.toString(16);
     });
+  }
+
+
+  clear(){
+    this.isNew= true;
+    this.text='';
+      this.id= '';
+      this.date= ''
   }
 }

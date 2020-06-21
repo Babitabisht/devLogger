@@ -17,22 +17,12 @@ export class LogService {
   selectedLog = this.logSource.asObservable();
 
   constructor() {
-    this.logs = [
-      { id: '1', text: 'generated components', date: new Date('12/26/2017') },
-      {
-        id: '2',
-        text: 'generated components 2',
-        date: new Date('12/26/2018'),
-      },
-      {
-        id: '3',
-        text: 'generated components 3',
-        date: new Date('12/26/2019'),
-      },
-    ];
+    
   }
 
   getLogs(): Observable<Log[]> {
+     this.logs = JSON.parse(localStorage.getItem('logs'));
+      
     return of(this.logs);
   }
 
@@ -41,6 +31,22 @@ export class LogService {
   }
 
   addLog(log: Log) {
+     let logsFromLocalStorage = JSON.parse(localStorage.getItem('logs'));
+    if (
+      localStorage.getItem('logs') === null ||
+      localStorage.getItem('logs') === undefined ||
+      logsFromLocalStorage.length==0
+    ) {
+      let logArray = new Array();
+      logArray.unshift(log);
+      localStorage.setItem('logs', JSON.stringify(logArray));
+    } else {
+      logsFromLocalStorage.unshift(log);
+      localStorage.setItem('logs', JSON.stringify(logsFromLocalStorage));
+    }
+
+ 
+ 
     this.logs.unshift(log);
   }
 
