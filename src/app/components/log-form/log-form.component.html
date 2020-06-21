@@ -1,0 +1,19 @@
+<div class="card card-body">
+  <form action="">
+    <input
+      type="text"
+      name="test"
+      id=""
+      class="form-control mb-3"
+      placeholder="log..."
+    />
+
+    <input
+      type="submit"
+      value="add log"
+      class="btn btn-primary mb-3"
+      [disabled]="!this.text"
+    />
+    <button class="btn btn-warn mb-3" [hidden]="!this.text">Clear</button>
+  </form>
+</div>
