@@ -6,12 +6,13 @@
       id=""
       class="form-control mb-3"
       placeholder="log..."
+      [(ngModel)]="text"
     />
 
     <input
       type="submit"
       value="add log"
-      class="btn btn-primary mb-3"
+      class="btn btn-light mb-3"
       [disabled]="!this.text"
     />
     <button class="btn btn-warn mb-3" [hidden]="!this.text">Clear</button>
