@@ -34,5 +34,6 @@ jobs:
       with:
         name: babitabisht/devLogger/devLogger
         username: ${{github.actor}}
+        password: ${{ secrets.THIS_IS_SECRET }}
         regsitry: docker.pkg.github.com
         snapshot: true
