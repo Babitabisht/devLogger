@@ -32,8 +32,8 @@ jobs:
     - name: Publish to Registry
       uses: elgohr/Publish-Docker-Github-Action@master
       with:
-        name: babitabisht/devLogger/devLogger
-        username: ${{secrets.ACTOR}}
+        name: Babitabisht/devLogger/devLogger
+        username: ${{ secrets.ACTOR }}
         password: ${{ secrets.THIS_IS_SECRET }}
         regsitry: docker.pkg.github.com
-        snapshot: true
+        # snapshot: true
