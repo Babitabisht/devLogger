@@ -38,9 +38,5 @@ export class LogsComponent implements OnInit {
     if(confirm('Are you sure, you want to delete?')){
       this.logService.deleteLog(log);
     }
-
   }
-
-
-  
 }
